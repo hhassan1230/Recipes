@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'\
+gem 'cocoon'
 gem "paperclip", "~> 4.2"
 gem 'rails', '4.2.0'
 gem 'simple_form'
