@@ -277,7 +277,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip
+  paperclip (~> 4.2)
   pg
   pry
   rails (= 4.2.0)

@@ -1,21 +1,22 @@
 !!! 5
 %html
 %head
-	%title Recipes
+	%title Recipe
 	= stylesheet_link_tag    'application', media: 'all' 
 	= javascript_include_tag 'application'
 	= csrf_meta_tags
 	= analytics_init if Rails.env.production?
 %body
-	%nav.navbar.navbar-default
-		.container
-			.navbar-brand= link_to "Recipes", recipes_path
+	%nav.navbar.navbar-fixed-top
+		%nav.navbar.navbar-default
+			.container
+				.navbar-brand= link_to "Recipes", recipes_path
 
-			%ul.nav.navbar-nav.navbar-right
-				%li= link_to "New Recipes", new_recipe_path
-				%li= link_to "Logout", recipes_path
+				%ul.nav.navbar-nav.navbar-right
+					%li= link_to "New Recipes", new_recipe_path
+					%li= link_to "Logout", recipes_path
 
-		.container
-			- flash.each do |name, msg|
-				= content_tag :div, msg, class: "alert"
-			= yield
+	.container
+		- flash.each do |name, msg|
+			= content_tag :div, msg, class: "alert"
+		= yield
