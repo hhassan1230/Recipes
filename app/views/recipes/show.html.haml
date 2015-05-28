@@ -8,7 +8,7 @@
         %p.description= @recipe.description
         %p
           Submitted by
-          = @recipe.user.email if @recipe.user
+          = @recipe.user.name if @recipe.user
   .row
     .col-md-6
       #ingredients
