@@ -25,7 +25,7 @@
             %li= direction.steps
   .row 
     .col-md-12
-      = link_to "Back", '/', class: "btn btn-default"
+      = link_to "Back", '/', class: "buttonx"
       - if user_signed_in?
-        = link_to "Edit", edit_recipe_path, class: 'btn btn-default'
-        = link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-default'
+        = link_to "Edit", edit_recipe_path, class: 'buttonx'
+        = link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'buttonx'
