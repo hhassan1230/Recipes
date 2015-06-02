@@ -23,6 +23,20 @@ KathieArray = [
 							directions: ["Melt butter and Chocolate.", "Add sugar.", "Blend well.", "Add eggs, one at a time.", "Mix.", "Add walnuts.", "Add dry ingredients.", "Mix thoroughly.", "Chill about 1 hour, or until easy to handle.", "Shape into balls (about 1 teaspoon full).", "Roll in Confectioners’ sugar and place on greased cookie sheet.", "Spread apart and cook at 300 degrees about 15 minutes.", "You want the cookies to be soft, so you may have to try a few with your oven.", "ENJOY!"],
 							description: "Kathie's Pixies the best thing to hit your mouth since... water. Original recipe by CS. Used and edited by KH",
 							url_img: "http://img.sndimg.com/food/image/upload/w_614,h_461,c_fit/v1/img/recipes/23/64/8/picpxTqg0.jpg"
+								},
+								{
+								title: "Kathie's Old Fashioned Butter Cookies",
+								ingredients: ["1-cup butter softened", "1-cup sugar", "1 egg", "2 ½ cups flour", "1-teaspoon baking powder", "2-tablespoons orange juice (the sweeter, the better-can use fresh oranges)", "1-teaspoon vanilla"],
+								directions: ["Combine butter, sugar and egg well.", "Stir in flour, baking powder, orange juice and vanilla until smooth.", "Chill in wax paper 2-3 hours.", "Preheat oven to 400.", "Roll out dough on floured surface to desired thickness.", "Use any cookie cutters desired.", "Place on ungreased cookie sheet.", "Bake for 6-10 minutes or until golden brown---or lighter.", "Enjoy!"],
+								description: "A Kathie original piece these old fashion butter cookies will change your world.",
+								url_img: "http://s3.amazonaws.com/gmi-digital-library/fc3c9d2f-62ef-4fe8-877d-6d759cde2dd7.jpg"
+								},
+								{
+								title: "Kathie's Melted Moments",
+								ingredients: ["½ cup cornstarch", "½ cup confectionary sugar", "1-cup flour", "¾ butter = 1 ½ stick  (softened)", "Chopped nuts (Optional-any kind you like)"],
+								directions: ["Stir dry ingredients together (cornstarch, sugar, flour).", "Add softened butter.", "Stir.", "You can either mix with a spoon or use your hands.", "Shape into balls (whatever size you like).", "Roll in chopped nuts, if desired.", "Bake at 325 degrees for 10 minutes.", "After the cookies come out of the over, gently roll in confectionary sugar.", "ENJOY!"],
+								description: "Bested Melted Moments in the world! Originially by WR. Edited by KH.",
+								url_img: "http://www.taste.com.au/images/recipes/sfi/2008/05/19723_l.jpg"
 								}]
 Rails.application.load_tasks
 require 'open-uri'
@@ -51,38 +65,39 @@ namespace :seed do
 		end
 	end
 
-	# task :youtube => :environment do
-	# 	nummies = User.create(name: "Rosanna Pansino",
-	# 							email: "rosanna.pansino@gmail.com",
-	# 							about: "I am the cook on Nerdy Nummies and I'm pretty hot",
-	# 							password: "aaaaaaaa",
-	# 							password_confirmation: "aaaaaaaa"
-	# 		)
-	# 	YoutubeLoad.new.search("nerdy nummies")
-	# end
+	task :youtube => :environment do
+		nummies = User.create(name: "Rosanna Pansino",
+								email: "rosanna.pansino@gmail.com",
+								about: "I am the cook on Nerdy Nummies and I'm pretty hot",
+								password: "aaaaaaaa",
+								password_confirmation: "aaaaaaaa"
+			)
+		YoutubeLoad.new.search("nerdy nummies")
+	end
 end
 
-# require 'google/api_client'
-# class YoutubeLoad
-# 	attr_reader :youtube, :client
-# 	def initialize
-#       @client = Google::APIClient.new(:key => ENV['youtube_id'],
-#                               :authorization => nil,
-#        :application_name => "Recipes")
-#       @youtube = @client.discovered_api('youtube', 'v3')
-#    end
+require 'google/api_client'
+class YoutubeLoad
+	attr_reader :youtube, :client
+	def initialize
+      @client = Google::APIClient.new(:key => ENV['youtube_id'],
+                              :authorization => nil,
+       :application_name => "Recipes")
+      @youtube = @client.discovered_api('youtube', 'v3')
+   end
 
-# 	def search(query)
-#       options = {}
-#       options[:q] ||= "#{query}"
-#       options[:part] = 'snippet'
-#       options[:maxResults] = 6
-#       results = @client.execute!(
-#       api_method: @youtube.search.list,
-#       parameters: options
-#       )
-#       binding.pry
-#       JSON.parse(results.body)['items'].map do |id|
-#         id['id']['videoId']
-#       end
-#     end
+	def search(query)
+      options = {}
+      options[:q] ||= "#{query}"
+      options[:part] = 'snippet'
+      options[:maxResults] = 6
+      results = @client.execute!(
+      api_method: @youtube.search.list,
+      parameters: options
+      )
+      binding.pry
+      JSON.parse(results.body)['items'].map do |id|
+        id['id']['videoId']
+      end
+    end
+   end
