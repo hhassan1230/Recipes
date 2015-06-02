@@ -4,7 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 KathieArray = [
 							{
-								title: "Kathie's Butter Cookies",
+								title: "Butter Cookies",
 								ingredients: ["1-cup butter softened", "1-cup sugar", "1 egg", "2 ½ cups flour", "1-teaspoon baking powder", "2-tablespoons orange juice (the sweeter, the better-can use fresh oranges)", "1-teaspoon vanilla"],
 								directions: ["Combine butter, sugar and egg well.", "Stir in flour, baking powder, orange juice and vanilla until smooth.", "Chill in wax paper 2-3 hours.", "Preheat oven to 400.", "Roll out dough on floured surface to desired thickness.", "Use any cookie cutters desired.", "Place on ungreased cookie sheet.", "Bake for 6-10 minutes or until golden brown---or lighter.", "Enjoy!"],
 								description: "A Kathie original piece these old fashion butter cookies will change your world.",
@@ -18,7 +18,7 @@ KathieArray = [
 								url_img: "https://d2k9njawademcf.cloudfront.net/indeximages/19598/original/brownies1.jpg?1403258350"
 							},
 							{
-								title: "Kathie's Strawberry Shortcake",
+								title: "Strawberry Shortcake",
 								ingredients: ["1 cup sifted flour", "1 teaspoon baking powder", "¼ teaspoon salt", "1/3 cup milk", "2 tablespoons butter", "3 eggs", "1 cup sugar", "1 teaspoon vanilla", "2 pints strawberries", "½ cup confectionary sugar", "¼ teaspoon vanilla", "1 cup heavy cream"],
 								directions: ["1. Sift flour, baking powder and salt onto wax paper.", "2. Heat milk with butter, just to scalding – cool slightly.", "3. Beat eggs until foamy in small bowl with mixer.  Add the 1-cup of sugar gradually until mixture is very thick and fluffy. Add Vanilla.", "4. Sprinkle flour mixture (1/3 at a time) over egg mixture; alternating with warmed milk and butter mixture – beginning and ending with the flour mixture.", "5. Pour into two greased and floured 8X11 inch pans.", "6. Bake in a moderate oven (350 degrees) for 25 minutes or until top springs back when lightly pressed.  Cool layers on a wire rack.", "7. Wash, hull, and slice the strawberries into a large bowl – reserving a cup for garnish.  Add confectionary sugar; stir slightly – crushing a few.  Let stand fpr 30 minutes, until juices run freely.", "8. Whip cream in a small bowl – you may add some confectionary sugar and a bit of vanilla when mixing the whipped cream.", "9. Place one layer on a plate.  Top with half whipped cream and berries.  Put another layer on.  Arrange cream and strawberries on top.  Garnish as desired.", "10. ENJOY!"],
 								description: "Kathie's world class Imperial Strawberry Shortcake will knock your socks off. Originially made by FCCB Altered by KH",
@@ -32,7 +32,7 @@ KathieArray = [
 								url_img: "http://img.sndimg.com/food/image/upload/w_614,h_461,c_fit/v1/img/recipes/23/64/8/picpxTqg0.jpg"
 								},
 							{
-								title: "Kathie's Melted Moments",
+								title: "Melted Moments",
 								ingredients: ["½ cup cornstarch", "½ cup confectionary sugar", "1-cup flour", "¾ butter = 1 ½ stick  (softened)", "Chopped nuts (Optional-any kind you like)"],
 								directions: ["Stir dry ingredients together (cornstarch, sugar, flour).", "Add softened butter.", "Stir.", "You can either mix with a spoon or use your hands.", "Shape into balls (whatever size you like).", "Roll in chopped nuts, if desired.", "Bake at 325 degrees for 10 minutes.", "After the cookies come out of the over, gently roll in confectionary sugar.", "ENJOY!"],
 								description: "Bested Melted Moments in the world! Originially by WR. Edited by KH.",
@@ -74,7 +74,44 @@ namespace :seed do
 								password: "aaaaaaaa",
 								password_confirmation: "aaaaaaaa"
 			)
-		YoutubeLoad.new.search("nerdy nummies")
+		# YoutubeLoad.new.search("nerdy nummies")
+		array = [
+						{
+							title: "LAYERED EARTH CAKE",
+							ingredients: ["(4) Eggs", "(1 1/3) Cup Butter", "(1 1/3) Cup Sugar", "(1) Cup All-Purpose Flour", "(2/3) Cup Self Raising Flour", "(1) Cup Almond Meal", "(1) Tsp Almond Extract", "(1) White Cake Mix"],
+							directions: "SGUUUJWcINw",
+							description: "Today I made a layered Earth cake in celebration of Earth Day! I really enjoy making nerdy themed goodies and decorating them. I'm not a pro, but I love baking as a hobby. Please let me know what kind of treat you would like me to make next.",
+							url_img: "http://img.youtube.com/vi/SGUUUJWcINw/0.jpg"
+						},
+						{
+							title: "PIZZA CAKE",
+							ingredients: ["Yellow Cake Mix", "Yellow Frosting", "Red Frosting", "White Chocolate Bar", "Apple Sour Punch Bites", "Milk Duds", "Strawberry Fruit Strip", "Circle Cookie Cutter", "Black Licorice"],
+							directions: "ept61k7Pnr4",
+							description: "Today I made a Pizza Cake from the game Lego Island! I really enjoy making nerdy themed goodies and decorating them. I'm not a pro, but I love baking as a hobby. Please let me know what kind of treat you would like me to make next. ",
+							url_img: "http://img.youtube.com/vi/ept61k7Pnr4/0.jpg"
+						},
+						{
+							title: "UNIKITTY SNICKERS POPS",
+							ingredients: ["Lollipop Sticks", "White Candy Melts", "Pink Candy Melts", "Fun-Size Snickers", "Starburst Fave Red", "Sour Apple Laffy Taffy"],
+							directions: "g6QbYR_OtmI",
+							description: "Today I made Lego Movie Unikitty Snickers Pops with my sister, Mo! I really enjoy making nerdy themed goodies and decorating them. I'm not a pro, but I love baking as a hobby. Please let me know what kind of treat you would like me to make next.",
+							url_img: "http://img.youtube.com/vi/g6QbYR_OtmI/0.jpg"
+						}
+		]
+		rz = nil
+		array.each do |recipe|
+			r = nummies.recipes.build
+			r.title = recipe[:title].downcase.titleize
+			r.description = recipe[:description]
+			recipe[:ingredients].each { |ele| r.ingredients.build(name: ele).save }
+			r.directions.build(youtube_vid: recipe[:directions]).save 
+			r.url_img = recipe[:url_img]
+			r.image = recipe[:url_img]
+			r.user_id = nummies.id
+			r.save
+			rz = r
+		end
+		# binding.pry
 	end
 end
 
