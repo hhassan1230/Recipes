@@ -44,7 +44,7 @@ body {
 $red: #DB6161;
 
 body {
-    background: rgb(235, 238, 243);
+    background-color: #5F9EA0;
 }
 
 .main_content {
@@ -78,7 +78,7 @@ body {
 }
 
 .recipe {
-    background: white;
+    background: #F0FFFF;
     border-radius: 5px;
     margin-bottom: 40px;
     @include box-shadow;
@@ -112,6 +112,22 @@ body {
         width: 4em
         }
     }
+
+    h3 {
+        padding: 15px 5%;
+        margin: 0;
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 1.5;
+        font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
+        a {
+            color: #40E0D0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 4em
+        }
+    }
 }
 
 #recipe_top {
@@ -119,7 +135,7 @@ body {
 }
 
 #recipe_info, #ingredients, #directions {
-    background: white;
+    background-color: #F0FFFF;
     @include box-shadow;
     min-height: 360px;
     border-radius: 5px;
