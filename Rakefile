@@ -111,7 +111,6 @@ namespace :seed do
 			r.save
 			rz = r
 		end
-		# binding.pry
 	end
 end
 
