@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'\
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'google-api-client'
 gem 'devise'
 gem 'cocoon'
 gem "paperclip", "~> 4.2"

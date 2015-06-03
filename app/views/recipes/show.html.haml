@@ -21,8 +21,10 @@
         %h2 Directions
         %ul
           - @recipe.directions.each do |direction|
-
-            %li= direction.steps
+            - if direction.youtube_vid
+              %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "250", :src => "http://www.youtube.com/embed/#{direction.youtube_vid}", :title => "YouTube video player", :width => "450"}
+            - else
+              %li= direction.steps
   .row 
     .col-md-12
       = link_to "Back", '/', class: "buttonx"
