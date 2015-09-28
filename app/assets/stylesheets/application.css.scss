@@ -1,25 +1,8 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree ../../../vendor/assets/stylesheets/.
- *= require_tree .
- *= require_self
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
- */
+$font: Helvetica Neue, Helvetica, Arial, sans-serif;
+$red: #DB6161;
+
 @import "bootstrap";
-/* Some Style from the Bootstrap Default Theme */
+.navbar { background-color: #1F5C53 !important; }
 body {
   padding-top: 70px;
   padding-bottom: 30px;
@@ -36,155 +19,149 @@ body {
 }
 
 @mixin box-shadow {
-    -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
-    -moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
-    box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+  box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
 }
-
-$red: #DB6161;
-
 body {
-    background-color: #5F9EA0;
+  background-color: #AA3939;
 }
-
 .main_content {
-    padding: 0 0 50px 0;
+  padding: 0 0 50px 0;
 }
-
 .alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    @include box-shadow;
-    background: white;
-    font-weight: bold;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  @include box-shadow;
+  background: white;
+  font-weight: bold;
 }
-
 .navbar {
-    margin-bottom: 3px;
-    @include box-shadow;
-    border: none;
-    .navbar-brand {
-        text-transform: uppercase;
-        letter-spacing: -1px;
-        font-weight: 200;
-        font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 33px;
-        a {
-            color: #5F9EA0;
-        }
+  margin-bottom: 1px;
+  border: none;
+  .navbar-brand {
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: 200;
+    font-family: $font;
+    font-size: 33px;
+    background-size: contain;
+    height: 15px;
+    margin-left: 10px;
+    width: 100%;
+    a {
+      color: #FFAAAA;
     }
+  }
 }
-
 .recipe {
-    background: #F0FFFF;
-    border-radius: 5px;
-    margin-bottom: 40px;
-    @include box-shadow;
-    .image_wrapper {
-        max-width: 100%;
-        border-radius: 5px 5px 0 0;
-        overflow: hidden;
-    }
-    img {
-        width: 100%;
-        -webkit-transition: all .3s ease-out;
-      -moz-transition: all .3s ease-out;
-      -o-transition: all .3s ease-out;
-    transition: all .3s ease-out;
-        &:hover {
-            transform: scale(1.075);
-        }
-    }
-    h2 {
-        padding: 15px 5%;
-        margin: 0;
-        font-size: 20px;
-        font-weight: 200;
-        line-height: 1.5;
-        font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
-        a {
-            color: #40E0D0;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 4em
-        }
-    }
-
-    h3 {
-        padding: 15px 5%;
-        margin: 0;
-        font-size: 20px;
-        font-weight: 200;
-        line-height: 1.5;
-        font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
-        a {
-            color: #40E0D0;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 4em
-        }
-    }
-}
-
-#recipe_top {
-    margin-bottom: 50px;
-}
-
-#recipe_info, #ingredients, #directions {
-    background-color: #F0FFFF;
-    @include box-shadow;
-    min-height: 360px;
-    border-radius: 5px;
-    padding: 2em 8%;
-}
-
-.recipe_image {
+  background: #F0FFFF;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  @include box-shadow;
+  .image_wrapper {
     max-width: 100%;
-    border-radius: 5px;
-    @include box-shadow;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+  }
+  img {
+    width: 100%;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    &:hover {
+      transform: scale(1.075);
+    }
+  }
+  h2 {
+    padding: 15px 5%;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.5;
+    -moz-box-shadow: 0px 0px 20px #000000;
+    -webkit-box-shadow: 0px 0px 20px #000000;
+    box-shadow: 0px 0px 20px #000000;
+    font-family: $font;
+    a {
+      font-family: $font;
+      color: #40E0D0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 4em
+    }
+  }
+  h3 {
+    padding: 15px 5%;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.5;
+    font-family: $font;
+    a {
+      font-family: $font;
+      color: #40E0D0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 4em
+    }
+  }
 }
-
+#recipe_top {
+  margin-bottom: 50px;
+}
+#recipe_info, #ingredients, #directions {
+  background-color: #1F5C53;
+  @include box-shadow;
+  min-height: 360px;
+  border-radius: 5px;
+  padding: 2em 8%;
+}
+.recipe_image {
+  max-width: 100%;
+  border-radius: 5px;
+  @include box-shadow;
+}
 #recipe_info {
-    h1 {
-        font-size: 36px;
-        font-weight: normal;
-        color: $red;
-    }
-    .description {
-        color: #8A8A8A;
-        font-size: 20px;
-    }
+  h1 {
+      font-size: 36px;
+      font-weight: normal;
+      color: $red;
+  }
+  .description {
+      color: #8A8A8A;
+      font-size: 20px;
+  }
 }
-
 #ingredients, #directions {
-    margin-bottom: 50px;
-    ul, ol {
-        padding-left: 18px;
-        li {
-            padding: 1em 0;
-            border-bottom: 1px solid #EAEAEA;
-        }
+  margin-bottom: 50px;
+  ul, ol {
+    padding-left: 18px;
+    li {
+      padding: 1em 0;
+      border-bottom: 1px solid #EAEAEA;
     }
+  }
 }
-
 .form-inline {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 .form-input {
-    width: 65% !important;
-    float: left;
+  width: 65% !important;
+  float: left;
 }
 .form-button {
-    float: left;
-    width: 30% !important;
-    margin-left: 5%;
+  float: left;
+  width: 30% !important;
+  margin-left: 5%;
 }
 .add-button {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 
