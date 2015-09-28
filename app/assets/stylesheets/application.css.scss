@@ -124,7 +124,7 @@ body {
   margin-bottom: 50px;
 }
 #recipe_info, #ingredients, #directions {
-  background-color: #1F5C53;
+  background-color: $light-color;
   @include box-shadow;
   min-height: 360px;
   border-radius: 5px;
@@ -139,17 +139,24 @@ body {
   h1 {
       font-size: 36px;
       font-weight: normal;
-      color: $red;
+      color: $dark-color;
   }
   .description {
-      color: #8A8A8A;
+      color: $main-color;
       font-size: 20px;
+  }
+  p {
+    color: $main-color;
   }
 }
 #ingredients, #directions {
+  h2 {
+    color: $dark-color;
+  }
   margin-bottom: 50px;
   ul, ol {
     padding-left: 18px;
+    color: $main-color;
     li {
       padding: 1em 0;
       border-bottom: 1px solid #EAEAEA;
