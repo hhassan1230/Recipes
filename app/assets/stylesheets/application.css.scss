@@ -92,9 +92,6 @@ body {
     font-size: 20px;
     font-weight: 200;
     line-height: 1.5;
-    -moz-box-shadow: 0px 0px 20px #000000;
-    -webkit-box-shadow: 0px 0px 20px #000000;
-    box-shadow: 0px 0px 20px #000000;
     font-family: $font;
     a {
       font-family: $font;
@@ -102,7 +99,8 @@ body {
       display: block;
       margin-left: auto;
       margin-right: auto;
-      width: 4em
+      text-align: center;
+      width: 60%;
     }
   }
   h3 {
@@ -118,7 +116,7 @@ body {
       display: block;
       margin-left: auto;
       margin-right: auto;
-      width: 4em
+      width: 4em;
     }
   }
 }
